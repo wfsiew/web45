@@ -69,7 +69,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Pages\Admin\" />
-    <Folder Include="Pages\Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -95,6 +94,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controls\CartSummary.ascx" />
     <Content Include="Controls\CategoryList.ascx" />
     <Content Include="css\bootstrap\css\bootstrap-theme.css" />
     <Content Include="css\bootstrap\css\bootstrap-theme.min.css" />
@@ -106,6 +106,7 @@
     <Content Include="css\bootstrap\js\bootstrap.min.js" />
     <Content Include="Global.asax" />
     <Content Include="js\lib\jquery-2.0.3.min.js" />
+    <Content Include="Pages\CartView.aspx" />
     <Content Include="Pages\Listing.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -113,6 +114,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.vb" />
+    <Compile Include="Controls\CartSummary.ascx.designer.vb">
+      <DependentUpon>CartSummary.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CartSummary.ascx.vb">
+      <DependentUpon>CartSummary.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Controls\CategoryList.ascx.designer.vb">
       <DependentUpon>CategoryList.ascx</DependentUpon>
     </Compile>
@@ -146,6 +154,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Pages\CartView.aspx.designer.vb">
+      <DependentUpon>CartView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CartView.aspx.vb">
+      <DependentUpon>CartView.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Helpers\SessionHelper.vb" />
     <Compile Include="Pages\Listing.aspx.designer.vb">
       <DependentUpon>Listing.aspx</DependentUpon>
     </Compile>

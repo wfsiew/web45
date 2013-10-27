@@ -1,4 +1,5 @@
 ﻿Imports PagedList
+Imports System.Web.Routing
 
 Public Class Listing
     Inherits System.Web.UI.Page
@@ -7,7 +8,17 @@ Public Class Listing
     Private pageSize As Integer = 1
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        If IsPostBack Then
+            Dim selectedProductId As Integer
+            If Integer.TryParse(Request.Form("add"), selectedProductId) Then
+                Dim selectedProduct As Product = repo.Products.Where(Function(p) p.ProductID = selectedProductId).FirstOrDefault()
+                If selectedProduct IsNot Nothing Then
+                    SessionHelper.GetCart(Session).AddItem(selectedProduct, 1)
+                    SessionHelper.[Set](Session, SessionKey.RETURN_URL, Request.RawUrl)
+                    Response.Redirect(RouteTable.Routes.GetVirtualPath(Nothing, "cart", Nothing).VirtualPath)
+                End If
+            End If
+        End If
     End Sub
 
     Public Function GetProducts() As IEnumerable(Of Product)
