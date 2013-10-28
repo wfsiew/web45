@@ -114,6 +114,7 @@
     <Content Include="css\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="css\bootstrap\js\bootstrap.js" />
     <Content Include="css\bootstrap\js\bootstrap.min.js" />
+    <Content Include="css\signin.css" />
     <Content Include="Global.asax" />
     <Content Include="js\lib\jquery-2.0.3.min.js" />
     <Content Include="Pages\Admin\Orders.aspx" />
@@ -123,6 +124,7 @@
     <Content Include="Pages\Listing.aspx" />
     <Content Include="Pages\Admin\Admin.Master" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Pages\Login.aspx" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery-2.0.3.min.map" />
@@ -220,6 +222,13 @@
     </Compile>
     <Compile Include="Pages\Listing.aspx.vb">
       <DependentUpon>Listing.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Login.aspx.designer.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Login.aspx.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\Store.Master.designer.vb">
