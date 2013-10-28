@@ -1,4 +1,6 @@
-﻿Public Class CartView
+﻿Imports System.Web.Routing
+
+Public Class CartView
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -27,6 +29,12 @@
     Public ReadOnly Property ReturnUrl() As String
         Get
             Return SessionHelper.[Get](Of String)(Session, SessionKey.RETURN_URL)
+        End Get
+    End Property
+
+    Public ReadOnly Property CheckoutUrl() As String
+        Get
+            Return RouteTable.Routes.GetVirtualPath(Nothing, "checkout", Nothing).VirtualPath
         End Get
     End Property
 End Class

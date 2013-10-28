@@ -37,5 +37,6 @@
         </tfoot>
     </table>
 
-    <a href="<%= ReturnUrl%>" class="btn btn-primary btn-block">Continue shopping</a>
+    <a href="<%= ReturnUrl%>" class="btn btn-primary">Continue shopping</a>
+    <a href="<%= CheckoutUrl%>" class="btn btn-primary">Checkout</a>
 </asp:Content>

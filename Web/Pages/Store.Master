@@ -14,7 +14,7 @@
     <script src="../css/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" role="form" class="form-horizontal">
         <div class="well well-sm">
             <SS:CartSummary ID="CartSummary1" runat="server" />
             <h2>SPORTS STORE</h2>
