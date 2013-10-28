@@ -1,4 +1,5 @@
 ﻿Imports System.Data.Entity
+Imports System.Web.ModelBinding
 
 Public Class Repository
     Private Context As New EFDbContext
@@ -14,6 +15,36 @@ Public Class Repository
             Return Context.Orders.Include(Function(o) o.OrderLines.Select(Function(ol) ol.Product))
         End Get
     End Property
+
+    Public Sub SaveProduct(product As Product)
+        If product.ProductID = 0 Then
+            product = Context.Products.Add(product)
+
+        Else
+            Dim dbProduct As Product =
+            context.Products.Find(product.ProductID)
+            If dbProduct IsNot Nothing Then
+                dbProduct.Name = product.Name
+                dbProduct.Description = product.Description
+                dbProduct.Price = product.Price
+                dbProduct.Category = product.Category
+            End If
+        End If
+        context.SaveChanges()
+    End Sub
+
+    Public Sub DeleteProduct(product As Product)
+        Dim orders As IEnumerable(Of Order) = Context.Orders.
+            Include(Function(o) o.OrderLines.
+                        Select(Function(ol) ol.Product)).
+                    Where(Function(o) o.OrderLines.AsEnumerable.Count(Function(ol) ol.Product.ProductID = product.ProductID) > 0
+        ).ToArray()
+        For Each order As Order In orders
+            context.Orders.Remove(order)
+        Next
+        context.Products.Remove(product)
+        context.SaveChanges()
+    End Sub
 
     Public Sub SaveOrder(order As Order)
         If order.OrderId = 0 Then

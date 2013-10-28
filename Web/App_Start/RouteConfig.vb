@@ -8,5 +8,7 @@ Public Class RouteConfig
         routes.MapPageRoute(Nothing, "list", "~/Pages/Listing.aspx")
         routes.MapPageRoute("cart", "cart", "~/Pages/CartView.aspx")
         routes.MapPageRoute("checkout", "checkout", "~/Pages/Checkout.aspx")
+        routes.MapPageRoute("admin_orders", "admin/orders", "~/Pages/Admin/Orders.aspx")
+        routes.MapPageRoute("admin_products", "admin/products", "~/Pages/Admin/Products.aspx")
     End Sub
 End Class
